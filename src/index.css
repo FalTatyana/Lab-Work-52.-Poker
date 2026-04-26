@@ -64,6 +64,7 @@
 
 body {
   margin: 0;
+  padding: 40px;
 }
 
 h1,
@@ -108,4 +109,13 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.container {
+  margin-top: 50px;
 }

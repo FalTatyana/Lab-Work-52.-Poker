@@ -1,39 +1,42 @@
 import './App.css';
 import CardDeck from './lib/CardDeck';
+import { useState } from 'react';
 
 const App = () => {
-  const props = {
-    rank: 'a',
-    suit: 'hearts',
+
+  const [cards, setCards] = useState([]);
+
+  const getSuit = (suit: string) => {
+    if (suit === 'hearts') return '♥';
+    if (suit === 'diams') return '♦';
+    if (suit === 'clubs') return '♣';
+    return '♠';
   };
 
-  const cardClasses = `card rank-${props.rank} ${props.suit}`;
-
-  let cardSuit = '';
-
-  if (props.suit === 'hearts') {
-    cardSuit = '♥';
-  } else if (props.suit === 'diams') {
-    cardSuit = '♦';
-  } else if (props.suit === 'clubs') {
-    cardSuit = '♣';
-  } else {
-    cardSuit = '♠';
-  } 
-
   const cardDeck = new CardDeck();
-  console.log(cardDeck.getCards(4));
-  
-  
+
+  const dealCards = () => {
+    const deal = cardDeck.getCards(5);
+
+    setCards(deal);
+  }
 
   return (
     <div className="playingCards faceImages">
-      <span className={cardClasses}>
-        <span className="rank">{props.rank.toUpperCase()}</span>
-        <span className="suit">{cardSuit}</span>
-      </span>
-    </div>
+      <button className='btn' onClick={dealCards}>Deal сards</button>
+
+      <div className="container">
+        {cards.map((card, index) => (
+          <span key={index} className={`card rank-${card.rank.toLowerCase()} ${card.suit}`} >
+            <span className="rank">{card.rank.toUpperCase()}</span>
+            <span className="suit">{getSuit(card.suit)}</span>
+          </span>
+        ))}
+      </div>
+
+    </div >
   );
+
 };
 
 export default App;
