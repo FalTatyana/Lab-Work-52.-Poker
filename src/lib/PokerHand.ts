@@ -20,7 +20,7 @@ class PokerHand {
       } else {
         objRank[rank.rank] = 1;
       }
-    }
+    };
 
     for (const suit of this.deal) {
       if (objSuit[suit.suit]) {
@@ -28,13 +28,13 @@ class PokerHand {
       } else {
         objSuit[suit.suit] = 1;
       }
-    }
+    };
 
     for (const key in objSuit) {
       if (objSuit[key] === 5) {
         combination = "flush";
       }
-    }
+    };
 
     for (const key in objRank) {
       if (objRank[key] === 2) {
@@ -44,13 +44,13 @@ class PokerHand {
       if (objRank[key] === 3) {
         combination = "three of a kind";
       }
-    }
+    };
 
     if (pairCount === 2) {
       combination = "two pair";
     } else if (pairCount === 1 && combination === "") {
       combination = "one pair";
-    }
+    };
 
     if (combination === "flush") {
       combination = "You have a flush";
@@ -62,10 +62,10 @@ class PokerHand {
       combination = "You have one pair";
     } else {
       combination = "High card";
-    }
+    };
 
     return combination;
-  }
-}
+  };
+};
 
 export default PokerHand;

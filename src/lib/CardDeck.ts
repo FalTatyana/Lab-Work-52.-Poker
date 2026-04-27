@@ -3,7 +3,21 @@ import Card from "./Card.ts";
 class CardDeck {
   public cardDeck: Card[] = [];
   private suites: string[] = ["spades", "hearts", "clubs", "diams"];
-  private ranks: string[] = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+  private ranks: string[] = [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A",
+  ];
 
   constructor() {
     this.suites.forEach((suite) => {

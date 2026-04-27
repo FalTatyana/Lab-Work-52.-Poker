@@ -21,7 +21,7 @@ const App = () => {
   const dealCards = () => {
     const deal = deck.getCards(5);
     setCards(deal);
-  }
+  };
 
   return (
     <div className="playingCards faceImages">
@@ -33,7 +33,7 @@ const App = () => {
             <span className="rank">{card.rank.toUpperCase()}</span>
             <span className="suit">{getSuit(card.suit)}</span>
           </span>
-        ))}
+        ))};
       </div>
       <p className='p'>{pokerCombination. getOutcome()}</p>
     </div >
