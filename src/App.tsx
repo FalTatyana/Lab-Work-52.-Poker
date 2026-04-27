@@ -1,6 +1,7 @@
 import './App.css';
 import CardDeck from './lib/CardDeck';
 import { useState } from 'react';
+import PokerHand from './lib/PokerHand';
 
 const App = () => {
 
@@ -13,11 +14,12 @@ const App = () => {
     return '♠';
   };
 
-  const cardDeck = new CardDeck();
+  const deck = new CardDeck();
+  const pokerCombination = new PokerHand(cards);
+  
 
   const dealCards = () => {
-    const deal = cardDeck.getCards(5);
-
+    const deal = deck.getCards(5);
     setCards(deal);
   }
 
@@ -33,7 +35,7 @@ const App = () => {
           </span>
         ))}
       </div>
-
+      <p className='p'>{pokerCombination. getOutcome()}</p>
     </div >
   );
 
